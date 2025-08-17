@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRPNT - Engineered for Hybrid Athletes | Built for Those Who Demand More</title>
+    <title>SRPNT - Engineered for Hybrid Athletes</title>
     <meta name="description" content="SRPNT isn't just another gym brand. We create apparel that adapts to every discipline — from the barbell to the track to the ring. Join the movement.">
     
     <!-- Open Graph / Facebook -->
@@ -102,10 +102,68 @@
             outline-offset: 2px;
         }
         
+        /* Cool underline styles */
+        .underline-cool {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .underline-cool::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #000 0%, #666 50%, #000 100%);
+            border-radius: 2px;
+            transform: scaleX(0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .underline-cool:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* Section header underlines */
+        .section-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: #000;
+            border-radius: 1px;
+        }
+        
+        /* Interactive cards */
+        .interactive-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .interactive-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Gradient backgrounds */
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
         /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
             .fade-in-up, .fade-in-left, .fade-in-right { transition: none; }
             .btn-primary:hover { transform: none; }
+            .interactive-card:hover { transform: none; }
         }
     </style>
     
@@ -116,39 +174,60 @@
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center px-6 py-20">
         <div class="max-w-4xl mx-auto text-center">
+            <!-- Logo -->
+            <div class="mb-12 fade-in-up">
+                <img src="assets/srpnt-logo-black.svg" alt="SRPNT" class="h-16 mx-auto mb-8">
+            </div>
+            
             <div class="fade-in-up">
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
-                    Engineered for Hybrid Athletes.<br>
-                    Built for Those Who Demand More.
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 underline-cool">
+                    Engineered for Hybrid Athletes.
                 </h1>
                 
                 <p class="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12">
                     SRPNT isn't just another gym brand. We create apparel that adapts to every discipline — from the barbell to the track to the ring. Precision fits, premium fabrics, and a movement built on transformation.
                 </p>
                 
-                <div class="space-y-6">
-                    <button class="btn-primary bg-black text-white px-12 py-5 rounded-xl text-xl font-semibold focus-ring">
-                        Join the Movement
-                    </button>
-                    
-                    <p class="text-lg text-gray-500">
-                        Be the first to access our drops and unlock exclusive founding-member perks.
-                    </p>
+                <!-- Simple Email Input -->
+                <div class="max-w-md mx-auto">
+                    <form action="https://formspree.io/f/xeozdgke" method="POST" class="space-y-4">
+                        <input type="hidden" name="_redirect" value="/thank-you.html">
+                        
+                        <div class="flex">
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="Enter your email" 
+                                required
+                                class="flex-1 px-6 py-4 border-2 border-gray-300 rounded-l-xl focus:border-black transition-colors text-lg"
+                            >
+                            <button 
+                                type="submit" 
+                                class="bg-black text-white px-8 py-4 rounded-r-xl font-semibold text-lg hover:bg-gray-800 transition-colors"
+                            >
+                                Join
+                            </button>
+                        </div>
+                        
+                        <p class="text-sm text-gray-500">
+                            Be the first to access our drops and unlock exclusive founding-member perks.
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- The Story Section -->
-    <section class="py-32 px-6 bg-gray-50">
+    <section class="py-32 px-6 gradient-bg">
         <div class="max-w-4xl mx-auto">
-            <div class="fade-in-left">
-                <h2 class="text-4xl md:text-6xl font-bold mb-12">
+            <div class="fade-in-left text-center">
+                <h2 class="text-4xl md:text-6xl font-bold mb-16 section-underline">
                     More Than Apparel.<br>
                     A Standard.
                 </h2>
                 
-                <div class="space-y-8 text-xl text-gray-700 leading-relaxed">
+                <div class="space-y-8 text-xl text-gray-700 leading-relaxed text-left">
                     <p>
                         SRPNT was born from a simple belief: real athletes don't fit into boxes.
                     </p>
@@ -173,7 +252,7 @@
     <section class="py-32 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="fade-in-up text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 section-underline">
                     We Fixed What Other Brands Ignore.
                 </h2>
             </div>
@@ -182,39 +261,61 @@
                 <!-- Problem 1 -->
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="fade-in-left">
-                        <h3 class="text-3xl font-bold mb-6">Normal gym gear fails under pressure.</h3>
+                        <h3 class="text-3xl font-bold mb-6 underline-cool">Normal gym gear fails under pressure.</h3>
                         <p class="text-xl text-gray-600 leading-relaxed">
                             Ours is built to handle sweat, stretch, and relentless intensity.
                         </p>
                     </div>
-                    <div class="fade-in-right bg-gray-100 h-80 rounded-2xl flex items-center justify-center">
-                        <p class="text-gray-500 text-lg">Product Image Placeholder</p>
+                    <div class="fade-in-right bg-gradient-to-br from-gray-100 to-gray-200 h-80 rounded-2xl flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 font-medium">Performance Built In</p>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Problem 2 -->
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="fade-in-left md:order-2">
-                        <h3 class="text-3xl font-bold mb-6">Most fits are generic.</h3>
+                        <h3 class="text-3xl font-bold mb-6 underline-cool">Most fits are generic.</h3>
                         <p class="text-xl text-gray-600 leading-relaxed">
                             SRPNT's engineered cut is tapered at the waist, snug at the sleeves, and mobile where you need it most.
                         </p>
                     </div>
-                    <div class="fade-in-right bg-gray-100 h-80 rounded-2xl flex items-center justify-center md:order-1">
-                        <p class="text-gray-500 text-lg">Product Image Placeholder</p>
+                    <div class="fade-in-right bg-gradient-to-br from-gray-100 to-gray-200 h-80 rounded-2xl flex items-center justify-center md:order-1">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 font-medium">Engineered Fit</p>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Problem 3 -->
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div class="fade-in-left">
-                        <h3 class="text-3xl font-bold mb-6">Big brands sell hype, not substance.</h3>
+                        <h3 class="text-3xl font-bold mb-6 underline-cool">Big brands sell hype, not substance.</h3>
                         <p class="text-xl text-gray-600 leading-relaxed">
                             Every stitch of SRPNT has a purpose. No gimmicks — just performance-driven design.
                         </p>
                     </div>
-                    <div class="fade-in-right bg-gray-100 h-80 rounded-2xl flex items-center justify-center">
-                        <p class="text-gray-500 text-lg">Product Image Placeholder</p>
+                    <div class="fade-in-right bg-gradient-to-br from-gray-100 to-gray-200 h-80 rounded-2xl flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                                </svg>
+                            </div>
+                            <p class="text-gray-600 font-medium">Purpose-Driven Design</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -222,31 +323,51 @@
     </section>
     
     <!-- Features + Benefits Section -->
-    <section class="py-32 px-6 bg-gray-50">
+    <section class="py-32 px-6 gradient-bg">
         <div class="max-w-6xl mx-auto">
             <div class="fade-in-up text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">
+                <h2 class="text-4xl md:text-6xl font-bold mb-8 section-underline">
                     Gear That Works As Hard As You Do.
                 </h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="fade-in-up bg-white p-8 rounded-2xl shadow-sm">
+                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Engineered Fits</h3>
                     <p class="text-gray-600">Muscle-contoured, never restrictive.</p>
                 </div>
                 
-                <div class="fade-in-up bg-white p-8 rounded-2xl shadow-sm">
+                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Premium Fabrics</h3>
                     <p class="text-gray-600">Sweat-ready, breathable, and built to last.</p>
                 </div>
                 
-                <div class="fade-in-up bg-white p-8 rounded-2xl shadow-sm">
+                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Minimalist Aesthetic</h3>
                     <p class="text-gray-600">Clean, versatile, and street-ready.</p>
                 </div>
                 
-                <div class="fade-in-up bg-white p-8 rounded-2xl shadow-sm">
+                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Athlete-Tested</h3>
                     <p class="text-gray-600">Forged in training, not in boardrooms.</p>
                 </div>
@@ -258,7 +379,7 @@
     <section class="py-32 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <div class="fade-in-up">
-                <h2 class="text-4xl md:text-6xl font-bold mb-12">
+                <h2 class="text-4xl md:text-6xl font-bold mb-12 section-underline">
                     Not Everyone Gets In.
                 </h2>
                 
