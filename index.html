@@ -4,472 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRPNT - Engineered for Hybrid Athletes</title>
-    <meta name="description" content="SRPNT isn't just another gym brand. We create apparel that adapts to every discipline — from the barbell to the track to the ring. Join the movement.">
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="description" content="Be part of SRPNT’s first 100 founders. Up to 25% off, early access, and first look at our premium line.">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://srpntfirst100.com/">
     <meta property="og:title" content="SRPNT - Engineered for Hybrid Athletes">
-    <meta property="og:description" content="SRPNT isn't just another gym brand. We create apparel that adapts to every discipline.">
-    <meta property="og:image" content="https://srpntfirst100.com/og-image.jpg">
+    <meta property="og:description" content="Be part of SRPNT’s first 100 founders. Up to 25% off, early access, and first look at our premium line.">
+    <meta property="og:image" content="https://srpntfirst100.com/og-image.jpg"><!-- 1200x630 recommended -->
     <meta property="og:site_name" content="SRPNT">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://srpntfirst100.com/">
     <meta property="twitter:title" content="SRPNT - Engineered for Hybrid Athletes">
-    <meta property="twitter:description" content="SRPNT isn't just another gym brand. We create apparel that adapts to every discipline.">
+    <meta property="twitter:description" content="Be part of SRPNT’s first 100 founders. Up to 25% off, early access, and first look at our premium line.">
     <meta property="twitter:image" content="https://srpntfirst100.com/og-image.jpg">
-    
+
     <!-- Canonical -->
     <link rel="canonical" href="https://srpntfirst100.com/">
-    
-    <!-- Favicon -->
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
+
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Tailwind config for SRPNT brand colours -->
+
+    <!-- Font: Space Grotesk for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind config (brand accent) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'serpent': '#31F2C3',
+                        serpent: '#31F2C3'
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Critical CSS for performance and animations -->
+
+    <!-- Critical CSS for grid + glow + motion -->
     <style>
-        /* System font stack for performance */
+        /* System stack for body for performance */
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-        
-        /* Prevent layout shift */
-        .min-h-screen { min-height: 100vh; }
-        
-        /* Smooth animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+
+        /* Subtle grid background */
+        body {
+            background-color: #ffffff;
+            background-image:
+                linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+            background-size: 24px 24px, 24px 24px;
+            background-position: center top;
         }
-        
-        .fade-in-up.animate {
-            opacity: 1;
-            transform: translateY(0);
+        /* Page glow */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(600px circle at 50% 120px, rgba(49,242,195,0.10), transparent 60%);
+            pointer-events: none;
+            z-index: -1;
         }
-        
-        .fade-in-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in-left.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .fade-in-right {
-            opacity: 0;
-            transform: translateX(30px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in-right.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Button hover effects */
-        .btn-primary {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Focus states */
-        .focus-ring:focus {
-            outline: 2px solid #31F2C3;
-            outline-offset: 2px;
-        }
-        
-        /* Cool underline styles */
-        .underline-cool {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .underline-cool::after {
-            content: '';
+        /* Hero localized glow to add weight */
+        .hero::before {
+            content: "";
             position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #000 0%, #666 50%, #000 100%);
-            border-radius: 2px;
-            transform: scaleX(0.8);
-            transition: transform 0.3s ease;
-        }
-        
-        .underline-cool:hover::after {
-            transform: scaleX(1);
-        }
-        
-        /* Section header underlines */
-        .section-underline {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
             left: 50%;
+            top: 20%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: #000;
-            border-radius: 1px;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(closest-side, rgba(0,0,0,0.06), transparent 70%);
+            filter: blur(30px);
+            pointer-events: none;
+            z-index: -1;
         }
-        
-        /* Interactive cards */
-        .interactive-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
+        /* Oversized heading underline */
+        .headline-underline {
+            position: relative;
+            display: inline-block;
         }
-        
-        .interactive-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        .headline-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -14px;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(102,102,102,0.9) 50%, rgba(0,0,0,0.9) 100%);
         }
-        
-        /* Gradient backgrounds */
-        .gradient-bg {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        .headline-underline em {
+            background: linear-gradient(90deg, #31F2C3, rgba(49,242,195,0.2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        
-        /* Reduced motion support */
+        /* Motion */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
         @media (prefers-reduced-motion: reduce) {
-            .fade-in-up, .fade-in-left, .fade-in-right { transition: none; }
-            .btn-primary:hover { transform: none; }
-            .interactive-card:hover { transform: none; }
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
         }
+        /* Forms: square, high-contrast, no rounded corners, accent on focus only */
+        .input-base { border-width: 1px; border-color: rgba(0,0,0,0.25); padding: 0.9rem 1rem; }
+        .input-base:focus { outline: 2px solid #31F2C3; outline-offset: 2px; border-color: #31F2C3; }
+        .btn-base { border: 1px solid rgba(0,0,0,0.85); background: #000; color: #fff; padding: 0.95rem 1.25rem; font-weight: 600; }
+        .btn-base:hover { background: #111; }
+        .btn-base:active { background: #0a0a0a; }
+        .no-radius { border-radius: 0; }
     </style>
-    
-    <!-- Cloudflare Web Analytics - Replace with your endpoint -->
-    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN_HERE"}'></script> -->
+
+    <!-- Cloudflare Web Analytics (placeholder) -->
+    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_CLOUDFLARE_TOKEN_HERE"}'></script> -->
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased">
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center px-6 py-20">
-        <div class="max-w-4xl mx-auto text-center">
-            <!-- Logo -->
-            <div class="mb-12 fade-in-up">
-                <img src="assets/srpnt-logo-black.svg" alt="SRPNT" class="h-16 mx-auto mb-8">
+<body class="text-gray-900 antialiased">
+    <!-- HERO -->
+    <section class="relative hero min-h-[90vh] flex items-center px-6 py-14">
+        <div class="mx-auto max-w-[800px] w-full text-center">
+            <div class="reveal show">
+                <img src="assets/srpnt-logo-black.svg" alt="SRPNT" class="mx-auto mb-10" style="width: 200px; height: auto;" />
             </div>
-            
-            <div class="fade-in-up">
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 underline-cool">
-                    Engineered for Hybrid Athletes.
+            <div class="reveal" style="transition-delay:.05s">
+                <h1 class="font-display tracking-tight font-bold leading-[1.05] text-5xl sm:text-6xl md:text-7xl headline-underline">
+                    Attention <em>Hybrid</em> Athletes.
                 </h1>
-                
-                <p class="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12">
-                    SRPNT isn't just another gym brand. We create apparel that adapts to every discipline — from the barbell to the track to the ring. Precision fits, premium fabrics, and a movement built on transformation.
+            </div>
+            <div class="reveal" style="transition-delay:.15s">
+                <p class="mt-8 text-xl sm:text-2xl text-gray-700">
+                    “Be part of our first 100 founders. Up to 25% off, early access, and first look at our premium line.”
                 </p>
-                
-                <!-- Simple Email Input -->
-                <div class="max-w-md mx-auto">
-                    <form action="https://formspree.io/f/xeozdgke" method="POST" class="space-y-4">
-                        <input type="hidden" name="_redirect" value="/thank-you.html">
-                        
-                        <div class="flex">
-                            <input 
-                                type="email" 
-                                name="email" 
-                                placeholder="Enter your email" 
-                                required
-                                class="flex-1 px-6 py-4 border-2 border-gray-300 rounded-l-xl focus:border-black transition-colors text-lg"
-                            >
-                            <button 
-                                type="submit" 
-                                class="bg-black text-white px-8 py-4 rounded-r-xl font-semibold text-lg hover:bg-gray-800 transition-colors"
-                            >
-                                Join
-                            </button>
-                        </div>
-                        
-                        <p class="text-sm text-gray-500">
-                            Be the first to access our drops and unlock exclusive founding-member perks.
-                        </p>
-                    </form>
-                </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- The Story Section -->
-    <section class="py-32 px-6 gradient-bg">
-        <div class="max-w-4xl mx-auto">
-            <div class="fade-in-left text-center">
-                <h2 class="text-4xl md:text-6xl font-bold mb-16 section-underline">
-                    More Than Apparel.<br>
-                    A Standard.
-                </h2>
-                
-                <div class="space-y-8 text-xl text-gray-700 leading-relaxed text-left">
-                    <p>
-                        SRPNT was born from a simple belief: real athletes don't fit into boxes.
-                    </p>
-                    
-                    <p>
-                        <strong>Strength. Endurance. Combat. Recovery.</strong> You do it all — and your gear should too.
-                    </p>
-                    
-                    <p>
-                        Most brands design clothes for one arena. We design for every challenge. Because being a hybrid athlete isn't about being good at one thing — it's about becoming unstoppable at everything.
-                    </p>
-                    
-                    <p>
-                        SRPNT is more than performance wear. It's a symbol of growth. A reminder that every rep, every mile, every round shapes you into something greater.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Problem → Solution Section -->
-    <section class="py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="fade-in-up text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 section-underline">
-                    We Fixed What Other Brands Ignore.
-                </h2>
-            </div>
-            
-            <div class="space-y-24">
-                <!-- Problem 1 -->
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="fade-in-left">
-                        <h3 class="text-3xl font-bold mb-6 underline-cool">Normal gym gear fails under pressure.</h3>
-                        <p class="text-xl text-gray-600 leading-relaxed">
-                            Ours is built to handle sweat, stretch, and relentless intensity.
-                        </p>
-                    </div>
-                    <div class="fade-in-right bg-gradient-to-br from-gray-100 to-gray-200 h-80 rounded-2xl flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 font-medium">Performance Built In</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Problem 2 -->
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="fade-in-left md:order-2">
-                        <h3 class="text-3xl font-bold mb-6 underline-cool">Most fits are generic.</h3>
-                        <p class="text-xl text-gray-600 leading-relaxed">
-                            SRPNT's engineered cut is tapered at the waist, snug at the sleeves, and mobile where you need it most.
-                        </p>
-                    </div>
-                    <div class="fade-in-right bg-gradient-to-br from-gray-100 to-gray-200 h-80 rounded-2xl flex items-center justify-center md:order-1">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 font-medium">Engineered Fit</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Problem 3 -->
-                <div class="grid md:grid-cols-2 gap-16 items-center">
-                    <div class="fade-in-left">
-                        <h3 class="text-3xl font-bold mb-6 underline-cool">Big brands sell hype, not substance.</h3>
-                        <p class="text-xl text-gray-600 leading-relaxed">
-                            Every stitch of SRPNT has a purpose. No gimmicks — just performance-driven design.
-                        </p>
-                    </div>
-                    <div class="fade-in-right bg-gradient-to-br from-gray-100 to-gray-200 h-80 rounded-2xl flex items-center justify-center">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-black rounded-full mx-auto mb-4 flex items-center justify-center">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-                                </svg>
-                            </div>
-                            <p class="text-gray-600 font-medium">Purpose-Driven Design</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features + Benefits Section -->
-    <section class="py-32 px-6 gradient-bg">
-        <div class="max-w-6xl mx-auto">
-            <div class="fade-in-up text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 section-underline">
-                    Gear That Works As Hard As You Do.
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Engineered Fits</h3>
-                    <p class="text-gray-600">Muscle-contoured, never restrictive.</p>
-                </div>
-                
-                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Premium Fabrics</h3>
-                    <p class="text-gray-600">Sweat-ready, breathable, and built to last.</p>
-                </div>
-                
-                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Minimalist Aesthetic</h3>
-                    <p class="text-gray-600">Clean, versatile, and street-ready.</p>
-                </div>
-                
-                <div class="fade-in-up interactive-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                    <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Athlete-Tested</h3>
-                    <p class="text-gray-600">Forged in training, not in boardrooms.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Exclusivity + Social Proof Section -->
-    <section class="py-32 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="fade-in-up">
-                <h2 class="text-4xl md:text-6xl font-bold mb-12 section-underline">
-                    Not Everyone Gets In.
-                </h2>
-                
-                <p class="text-xl text-gray-600 leading-relaxed mb-16 max-w-3xl mx-auto">
-                    SRPNT isn't for everyone — it's for the few who demand more from themselves, every single day.
-                </p>
-                
-                <div class="text-left max-w-2xl mx-auto space-y-6 mb-16">
-                    <h3 class="text-2xl font-bold mb-6">Early members get more than first access. They get status:</h3>
-                    
-                    <ul class="space-y-4 text-lg text-gray-700">
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                            <span>Exclusive early-bird discounts.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                            <span>Founding-member recognition.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-black rounded-full mt-3 mr-4 flex-shrink-0"></span>
-                            <span>Input into future designs.</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <p class="text-xl text-gray-600">
-                    This is your chance to be part of the first wave — the athletes shaping the future of SRPNT.
+            <!-- Email Capture Primary -->
+            <div class="reveal" style="transition-delay:.25s">
+                <form action="https://formspree.io/f/xeozdgke" method="POST" class="mt-10 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-[720px] mx-auto">
+                    <input type="hidden" name="_redirect" value="/thank-you.html">
+                    <label for="hero-email" class="sr-only">Email address</label>
+                    <input id="hero-email" name="email" type="email" required placeholder="Enter your email" class="input-base no-radius w-full" aria-describedby="hero-benefits">
+                    <button type="submit" class="btn-base no-radius w-full sm:w-auto">Get Early Access</button>
+                </form>
+                <p id="hero-benefits" class="mt-3 text-sm text-gray-600">
+                    Exclusive pre-orders · Up to 25% off · Early access
                 </p>
             </div>
         </div>
     </section>
-    
-    <!-- Final CTA Section -->
-    <section class="py-32 px-6 bg-black text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="fade-in-up">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8">
-                    Don't Just Train Harder.<br>
-                    Train Smarter — in Gear Built for You.
-                </h2>
-                
-                <div class="space-y-6">
-                    <button class="btn-primary bg-white text-black px-12 py-5 rounded-xl text-xl font-semibold focus-ring">
-                        Join Now
-                    </button>
-                    
-                    <p class="text-lg text-gray-300">
-                        Sign up today for exclusive early access + founding-member perks.
-                    </p>
-                </div>
-            </div>
+
+    <!-- VISION / LIFESTYLE -->
+    <section class="px-6 py-24 sm:py-28">
+        <div class="mx-auto max-w-[760px]">
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-6">Built for the ones who go beyond.</h2>
+            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed mb-6">
+                SRPNT is more than apparel. It’s built for hybrid athletes — those who demand strength, endurance, and discipline. Signing up means joining a movement that rewards the ones who go beyond limits.
+            </p>
+            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                Founders get exclusive access, early drops, and the chance to shape the future of SRPNT.
+            </p>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer class="py-16 px-6 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold mb-4">SRPNT</h2>
-                <p class="text-xl text-gray-300 mb-6">Transform. Develop. Strengthen.</p>
-            </div>
-            
-            <div class="border-t border-gray-800 pt-8">
-                <p class="text-gray-400 mb-4">#GrowWithSRPNT</p>
-                <p class="text-sm text-gray-500">&copy; 2024 SRPNT. All rights reserved.</p>
-            </div>
+
+    <!-- REPEATED CTA -->
+    <section class="px-6 pb-28">
+        <div class="mx-auto max-w-[760px] text-center">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold">Don’t miss your chance to be one of the first 100 founders.</h3>
+            <form action="https://formspree.io/f/xeozdgke" method="POST" class="mt-8 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-[720px] mx-auto">
+                <input type="hidden" name="_redirect" value="/thank-you.html">
+                <label for="bottom-email" class="sr-only">Email address</label>
+                <input id="bottom-email" name="email" type="email" required placeholder="Enter your email" class="input-base no-radius w-full">
+                <button type="submit" class="btn-base no-radius w-full sm:w-auto">Get Early Access</button>
+            </form>
         </div>
-    </footer>
-    
-    <!-- Intersection Observer for scroll animations -->
+    </section>
+
+    <!-- Scroll reveal (subtle) -->
     <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all animated elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-            animatedElements.forEach(el => observer.observe(el));
-        });
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+            const els = Array.from(document.querySelectorAll('.reveal'));
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+            }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+            els.forEach(el => io.observe(el));
+        } else {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+        }
     </script>
 </body>
 </html>
