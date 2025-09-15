@@ -169,6 +169,40 @@
         </div>
     </section>
 
-    
+    <!-- VISION / LIFESTYLE -->
+    <section class="px-6 pt-4 pb-6 sm:pt-6 sm:pb-8">
+        <div class="mx-auto max-w-[760px] text-center">
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold mb-6">Built for the ones who go beyond.</h2>
+            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed mb-8">
+                SRPNT is more than clothing — it's the world's first community built for hybrid athletes. Strength, endurance, conditioning: real athletes train it all. This is your place to connect, train, and grow stronger — together.
+            </p>
+            <p class="text-lg sm:text-xl font-black text-gray-900 leading-relaxed mb-8">
+                Join now & say you were here before SRPNT became huge.
+            </p>
+            <h3 class="font-display text-xl sm:text-2xl font-semibold mb-3">Stay updated on drops & exclusive offers</h3>
+            <p class="text-gray-600 mb-8">Get notified when we launch new products and exclusive community events.</p>
+            <form action="https://formspree.io/f/xeozdgke" method="POST" class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-[500px] mx-auto">
+                <input type="hidden" name="_redirect" value="/thank-you.html">
+                <label for="middle-email" class="sr-only">Email address</label>
+                <input id="middle-email" name="email" type="email" required placeholder="Enter your email" class="input-base no-radius w-full">
+                <button type="submit" class="btn-base no-radius w-full sm:w-auto">Get Updates</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Scroll reveal (subtle) -->
+    <script>
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+            const els = Array.from(document.querySelectorAll('.reveal'));
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+            }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+            els.forEach(el => io.observe(el));
+        } else {
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+        }
+    </script>
 </body>
 </html>
