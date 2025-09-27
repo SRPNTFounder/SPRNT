@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>OG Image Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo {
+            font-size: 120px;
+            font-weight: 900;
+            color: #000;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .tagline {
+            font-size: 36px;
+            color: #666;
+            font-weight: 600;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.2;
+        }
+        .accent {
+            color: #31F2C3;
+        }
+        .grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-image">
+        <div class="grid-bg"></div>
+        <div class="logo">SRPNT</div>
+        <div class="tagline">⚡ FIRST 100 FREE — Join the <span class="accent">Hybrid Athlete</span> Community</div>
+    </div>
+    
+    <script>
+        // Instructions for saving as PNG
+        console.log('To save as PNG:');
+        console.log('1. Right-click on the image above');
+        console.log('2. Select "Save image as..." or "Copy image"');
+        console.log('3. Save as "og-image.png" in your SPRNT folder');
+        console.log('4. The image is exactly 1200x630 pixels for social media');
+    </script>
+</body>
+</html>
